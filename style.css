@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sheet {
+    page-break-after: always;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@page {
+    size: A4;
+    margin: 0;
+}

@@ -3,22 +3,22 @@ description:
 keywords: []
 steps:
 - caption: ''
-  file: step1.html
+  file: step1.md
   image: step1.png
   imgSize: 1x1
   keywords: []
 - caption: ''
-  file: step2.html
+  file: step2.md
   image: step2.png
   imgSize: 1x1
   keywords: []
 - caption: ''
-  file: step3.html
+  file: step3.md
   image: step3.png
   imgSize: 1x1
   keywords: []
 - caption: ''
-  file: step4.html
+  file: step4.md
   image: step4.png
   imgSize: 1x1
   keywords: []
@@ -28,18 +28,23 @@ steps:
   imgSize: 1x1
   keywords: []
 - caption: ''
-  file: step6.html
+  file: step6.md
   image: step6.png
   imgSize: 1x1
   keywords: []
 - caption: ''
-  file: step7.html
+  file: step7.md
   image: step7.png
   imgSize: 1x1
   keywords: []
 - caption: ''
-  file: step8.html
+  file: step8.md
   image: step8.png
   imgSize: 1x1
+  keywords: []
+- caption: ''
+  file: step9.md
+  image: step9.png
+  imgSize: 2x2
   keywords: []
 topic: マニュアル新規作成

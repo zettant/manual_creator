@@ -56,7 +56,7 @@ def create_new_manual_directory(dir_path: str):
 topic_config = {
     "topic": "トピックのタイトル行に各内容を入れてください",
     "description": {
-      "file": "description.html"
+      "file": "description.md"
     },
     "keywords": [],  # キーワードがあれば
     "steps": [],     # ステップ情報がここに入る
@@ -69,8 +69,8 @@ def add_new_topic(dir_path: str, name: str):
     with open(os.path.join(topic_path, "config.yml"), "w", encoding='utf-8') as f:
         yaml.dump(topic_config, f, allow_unicode=True)
 
-    with open(os.path.join(topic_path, "description.html"), "w", encoding='utf-8') as f:
-        f.write("<div>\n</div>\n")
+    with open(os.path.join(topic_path, "description.md"), "w", encoding='utf-8') as f:
+        f.write("何か説明を書いてください\n")
 
     # マニュアル全体のコンフィグにページ情報を追加する。とりあえず最初のセクションの一番最後に追加するので、必要なら手動で場所を替えてもらう
     conf_path = os.path.join(dir_path, "config.yml")
@@ -102,14 +102,14 @@ def add_new_step(dir_path: str):
     # コンフィグのアップデート
     step = len(conf["steps"])+1
     new_conf["image"] = f"step{step}.png"
-    new_conf["file"] = f"step{step}.html"
+    new_conf["file"] = f"step{step}.md"
     conf["steps"].append(new_conf)
     with open(conf_path, "w", encoding='utf-8') as f:
         yaml.dump(conf, f, allow_unicode=True)
 
     # ファイル作成
-    with open(os.path.join(dir_path, f"step{step}.html"), "w", encoding='utf-8') as f:
-        f.write("<div>\n</div>\n")
+    with open(os.path.join(dir_path, f"step{step}.md"), "w", encoding='utf-8') as f:
+        f.write("### ここに説明を記述してください\n")
 
     print(f"### step{step}.pngという名前で画像をこのディレクトリに置いてください。")
     print(f"### 大きさを変更したり、ファイル名を違うものにしたい場合は、config.ymlを編集してください。")

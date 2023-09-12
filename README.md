@@ -44,12 +44,13 @@ HTML形式のページをPDFに出力して配布することを想定するが�
    python add_step.py
    python add_step.py
    ```
-   これを実行すると、newManual/トピック１/config.ymlにステップ情報が追記され、htmlファイル雛形が出力される。
+   これを実行すると、newManual/トピック１/config.ymlにステップ情報が追記され、mdファイル雛形が出力される。なお、mdファイル以外にもhtmlファイルに説明を記述することもできる。その場合は、config.ymlのfileに指定されているファイル名を変更する必要がある。
 
 
 4. トピックの詳細情報を記述する
    * マニュアルページのトピックの冒頭に説明文を記述する（記述する内容がなければ放置でOK）
-   * newManual/トピック１/description.html に記述する。
+   * newManual/トピック１/description.md に記述する。
+     * htmlファイルでも記述できる。ファイル名をfileで指定しているので、description.mdをdescription.htmlに変更すれば良い。
      * 簡単なものであれば newManual/トピック１/config.ymlのdescriptionの下に、fileではなくtextというキーを書いて、その下に配列で文字列を書くことも可能
        ```yaml
        description: # このページのトピックの詳細記述

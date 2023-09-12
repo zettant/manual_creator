@@ -1,0 +1,1 @@
+まずは、pythonのvenv環境を作り、requirements.txtのモジュールをインストールしてください。

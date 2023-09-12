@@ -1,10 +1,9 @@
 import os
 import datetime
 import base64
-import markdown
+import pycmarkgfm
 
 from .toc_build import create_toc, create_keywords
-
 
 TEMPLATES = {
     "head": "head.html",
@@ -65,7 +64,8 @@ def create_content(base_path: str, child_path: str, conf: dict, keyname="") -> s
     if file_path.endswith(".md"):
         with open(os.path.join(base_path, child_path, conf["file"])) as f:
             txt = f.read()
-        return markdown.markdown(txt)
+        return pycmarkgfm.markdown_to_html(txt)
+        #return md.convert(txt)
     else:
         with open(os.path.join(base_path, child_path, conf["file"])) as f:
             return f.read()
@@ -80,6 +80,12 @@ def get_image(base_path: str, page_path: str, path: str, img_size: str) -> str:
         dat = f.read()
     enc_dat = base64.b64encode(dat).decode()
     return f'<img style="{get_image_size(img_size)}" src="data:image/png;base64,{enc_dat}"/>'
+
+
+def get_markdown_css(file_name: str):
+    if file_name.endswith(".md"):
+        return "markdown-body"
+    return ""
 
 
 def get_image_size(size: str) -> str:
@@ -106,7 +112,7 @@ def build(base_path: str, conf: dict) -> str:
     topic_page_nums = dict()  # トピックとページ番号の対応表
     keyword_page_nums = dict() # キーワードとページ番号の対応表
 
-    # TODO: セクション(ページ)作成
+    # セクション(ページ)作成
     sections_html = ""
     pm = PageManage()
     for topic in conf["topics"]:  #type: dict
@@ -116,7 +122,8 @@ def build(base_path: str, conf: dict) -> str:
 
         # トピックのタイトルヘッダを作る
         topic_description = create_content(base_path, topic["path"], topic.get("description"), "トピック定義")
-        rep_map = {"TITLE": topic.get("topic"), "DESCRIPTION": topic_description}
+        topic_txt_file = topic.get("description", {}).get("file", "")
+        rep_map = {"TITLE": topic.get("topic"), "DESCRIPTION": topic_description, "MARKDOWN": get_markdown_css(topic_txt_file)}
         topic_html += get_element("topic", rep_map)
 
         # ステップのコンテンツを並べる
@@ -132,7 +139,9 @@ def build(base_path: str, conf: dict) -> str:
             rep_map = {"IMAGE": get_image(base_path, topic["path"], step.get("image"), step.get("imgSize")),
                        "IMGSIZE": get_image_size(step.get("imgSize")),
                        "CAPTION": caption,
-                       "TEXT": text}
+                       "TEXT": text,
+                       "MARKDOWN": get_markdown_css(step.get("file", ""))
+                       }
             topic_html += get_element("step", rep_map)
 
             # 索引のためにページ番号を覚えておく

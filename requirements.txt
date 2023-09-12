@@ -1,2 +1,4 @@
-Markdown==3.4.4
+cffi==1.15.1
+pycmarkgfm==1.2.1
+pycparser==2.21
 PyYAML==6.0.1

@@ -1,0 +1,25 @@
+description:
+  file: description.html
+keywords: []
+steps:
+- caption: ''
+  file: step1.html
+  image: step1.png
+  imgSize: 1x1
+  keywords: []
+- caption: ''
+  file: step2.html
+  image: step2.png
+  imgSize: 1x2
+  keywords: []
+- caption: ''
+  file: step3.html
+  image: step3.png
+  imgSize: 2x1
+  keywords: []
+- caption: ''
+  file: step4.html
+  image: step4.png
+  imgSize: 2x2
+  keywords: []
+topic: 画像サイズ

@@ -8,6 +8,13 @@
 HTML形式のページをPDFに出力して配布することを想定するが、HTMLをそのままマニュアルページとして表示してもいいかもしれない。
 
 
+サンプルとして、このツールを説明するsampleManualディレクトリ、sampleManual.htmlおよびsampleManual.pdfを用意したので、そちらを参照してください。ちなみに、
+```bash
+python create_manual.py -i sampleManual -o sampleManual.html
+```
+でビルドできます。
+
+
 ## 要件
 
 * 入力は、mdファイルとjpeg/pngファイル群とする

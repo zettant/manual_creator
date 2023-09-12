@@ -2,6 +2,8 @@ import os
 import datetime
 import base64
 import pycmarkgfm
+import io
+from PIL import Image
 
 from .toc_build import create_toc, create_keywords
 
@@ -13,6 +15,8 @@ TEMPLATES = {
     "topic": "topic_title.html",
     "step": "step_explain.html"
 }
+
+SIZE_UNIT = 180   # 1を180pxとする
 
 
 class PageManage:
@@ -71,32 +75,38 @@ def create_content(base_path: str, child_path: str, conf: dict, keyname="") -> s
             return f.read()
 
 
+def _get_image_info(img_path: str):
+    img_type = os.path.splitext(img_path)[1].replace(".", "")
+    img = Image.open(img_path)
+    width, height = img.size
+    with io.BytesIO() as buffer:
+        img.save(buffer, format=img_type)  # ここでJPEG形式を指定していますが、必要に応じて変更できます
+        binary_data = buffer.getvalue()
+    return width, height, img_type, binary_data
+
+
+def _get_image_size(width: int, height: int, size: str) -> str:
+    x, y = list(map(lambda z: int(z)*SIZE_UNIT, size.split("x")))
+    if width > height:
+        return f"width:{x}px;height:auto;"
+    else:
+        return f"width:auto;height:{y}px;"
+
+
 def get_image(base_path: str, page_path: str, path: str, img_size: str) -> str:
     """ファイルが指定された場合は、その画像ファイルを読み込んでBase64文字列を返す"""
     img_path = os.path.join(base_path, page_path, path)
     if path is None or not os.path.exists(img_path):
         return ""
-    with open(img_path, "rb") as f:
-        dat = f.read()
+    w, h, img_type, dat = _get_image_info(img_path)
     enc_dat = base64.b64encode(dat).decode()
-    return f'<img style="{get_image_size(img_size)}" src="data:image/png;base64,{enc_dat}"/>'
+    return f'<img style="{_get_image_size(w, h, img_size)}" src="data:image/{img_type};base64,{enc_dat}"/>'
 
 
 def get_markdown_css(file_name: str):
     if file_name.endswith(".md"):
         return "markdown-body"
     return ""
-
-
-def get_image_size(size: str) -> str:
-    if size == "2x2":
-        return "width:360px;height:360px"
-    elif size == "2x1":
-        return "width:360px;height:180px"
-    elif size == "1x2":
-        return "width:180px;height:360px"
-    else:
-        return "width:180px;height:180px"
 
 
 def build(base_path: str, conf: dict) -> str:
@@ -137,7 +147,6 @@ def build(base_path: str, conf: dict) -> str:
 
             text = create_content(base_path, topic["path"], step, f"ステップ定義:{caption}")
             rep_map = {"IMAGE": get_image(base_path, topic["path"], step.get("image"), step.get("imgSize")),
-                       "IMGSIZE": get_image_size(step.get("imgSize")),
                        "CAPTION": caption,
                        "TEXT": text,
                        "MARKDOWN": get_markdown_css(step.get("file", ""))

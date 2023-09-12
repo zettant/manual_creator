@@ -23,6 +23,7 @@ steps:
   imgSize: 1x1
   keywords: []
 - caption: ''
+  newPage: true
   file: step5.md
   image: step5.png
   imgSize: 1x1

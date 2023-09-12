@@ -1,4 +1,5 @@
 cffi==1.15.1
+Pillow==10.0.0
 pycmarkgfm==1.2.1
 pycparser==2.21
 PyYAML==6.0.1

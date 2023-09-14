@@ -24,12 +24,14 @@ def walk_in_directory_to_create_conf(dir_path: str):
     conf = _read_config(conf_path)
     conf["topics"] = []
 
-    for p in glob.glob(os.path.join(dir_path, "*")):
-        if not os.path.isdir(p): continue
-        cp = os.path.join(p, "config.yml")
-        page_conf = _read_config(cp)
-        page_conf["path"] = os.path.relpath(p, dir_path)
-        conf["topics"].append(page_conf)
+    for s in conf["sections"]:
+        for p in s["topics"]:
+            d = os.path.join(dir_path, p)
+            if not os.path.isdir(d): continue
+            cp = os.path.join(d, "config.yml")
+            page_conf = _read_config(cp)
+            page_conf["path"] = p
+            conf["topics"].append(page_conf)
 
     return conf
 

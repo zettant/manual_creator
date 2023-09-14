@@ -133,7 +133,12 @@ def build(base_path: str, conf: dict) -> str:
         # トピックのタイトルヘッダを作る
         topic_description = create_content(base_path, topic["path"], topic.get("description"), "トピック定義")
         topic_txt_file = topic.get("description", {}).get("file", "")
-        rep_map = {"TITLE": topic.get("topic"), "DESCRIPTION": topic_description, "MARKDOWN": get_markdown_css(topic_txt_file)}
+        rep_map = {
+            "TITLE": topic.get("topic"),
+            "DESCRIPTION": topic_description,
+            "MARKDOWN": get_markdown_css(topic_txt_file),
+            "STEPMARGIN": str(conf.get("stepMargin", 48)),
+        }
         topic_html += get_element("topic", rep_map)
 
         # ステップのコンテンツを並べる
@@ -149,7 +154,8 @@ def build(base_path: str, conf: dict) -> str:
             rep_map = {"IMAGE": get_image(base_path, topic["path"], step.get("image"), step.get("imgSize")),
                        "CAPTION": caption,
                        "TEXT": text,
-                       "MARKDOWN": get_markdown_css(step.get("file", ""))
+                       "MARKDOWN": get_markdown_css(step.get("file", "")),
+                       "STEPMARGIN": str(conf.get("stepMargin", 48)),
                        }
             topic_html += get_element("step", rep_map)
 

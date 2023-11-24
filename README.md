@@ -39,8 +39,8 @@ python create_manual.py -i sampleManual -o sampleManual.html
 2. マニュアルにトピックを追加する
    ```bash
    cd newManual
-   python add_topic.py -p トピック１
-   python add_topic.py -p トピック２
+   python add_topic.py -t トピック１
+   python add_topic.py -t トピック２
    ```
    これを実行すると、newManual/トピック１、newManual/トピック２ が生成され、その中にコンフィグファイルとスクリプト、description.htmlが置かれる。
 

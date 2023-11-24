@@ -1,0 +1,45 @@
+description:
+  file: description.md
+keywords: []
+steps:
+- caption: 1. 受信したメールから申し込みページへアクセスする
+  file: step1.md
+  image: step1.png
+  imgSize: 2x2
+  keywords: []
+- caption: 2. 責任者の情報を入力する
+  file: step2.md
+  image: step2.png
+  imgSize: 2x2
+  keywords: []
+- caption: 3. エントリの追加ボタンを押す
+  file: step3.md
+  image: step3.png
+  imgSize: 2x2
+  keywords: []
+- caption: 4. 参加する選手の情報を入力する
+  file: step4.md
+  image: step4.png
+  imgSize: 2x2
+  keywords: []
+- caption: 5. 取りまとめたこの大会に参加する選手の全て情報を入力する
+  file: step5.md
+  image: step5.png
+  imgSize: 2x2
+  keywords: []
+- caption: 6. 申し込むボタンを選択する
+  file: step6.md
+  image: step6.png
+  imgSize: 2x2
+  keywords: []
+- caption: 7. 責任者情報と参加する選手の情報の確認を行う
+  file: step7.md
+  image: step7.png
+  imgSize: 2x2
+  keywords: []
+- caption: 8. 支払い方法選択へを選択する
+  file: step8.md
+  image: step8.png
+  imgSize: 1x1
+  keywords: []
+topic: 責任者情報・選手情報を入力する

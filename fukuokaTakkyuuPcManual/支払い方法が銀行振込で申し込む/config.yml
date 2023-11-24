@@ -1,0 +1,30 @@
+description:
+  file: description.md
+keywords: []
+steps:
+- caption: 1. 支払い方法の選択で銀行振込を選択する
+  file: step1.md
+  image: step1.png
+  imgSize: 2x2
+  keywords: []
+- caption: 2. 支払い合計金額および支払い先を確認する
+  file: step2.md
+  image: step2.png
+  imgSize: 2x2
+  keywords: []
+- caption: 3. 完了したことを確認する
+  file: step3.md
+  image: step3.png
+  imgSize: 2x2
+  keywords: []
+- caption: 4. メールを受信し、申し込み内容を確認する
+  file: step4.md
+  image: step4.png
+  imgSize: 2x2
+  keywords: []
+- caption: 5. 銀行にて参加料の振込を実施する
+  file: step5.md
+  image: step5.png
+  imgSize: 2x2
+  keywords: []
+topic: 支払い方法が銀行振込で申し込む

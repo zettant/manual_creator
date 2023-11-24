@@ -1,0 +1,25 @@
+description:
+  file: description.md
+keywords: []
+steps:
+- caption: 1. 大会申し込み開始ページにアクセスする
+  file: step1.md
+  image: step1.png
+  imgSize: 2x2
+  keywords: []
+- caption: 2. 責任者のメールアドレスを入力し送信ボタンを選択
+  file: step2.md
+  image: step2.png
+  imgSize: 2x2
+  keywords: []
+- caption: 3. メールアドレスを確認しOKボタンを選択
+  file: step3.md
+  image: step3.png
+  imgSize: 2x2
+  keywords: []
+- caption: 4. 大会申し込みページのメールを受信
+  file: step4.md
+  image: step4.png
+  imgSize: 2x2
+  keywords: []
+topic: 申し込みページをメールで受け取る

@@ -1,5 +1,7 @@
 issuer: 発行者名
 title: このマニュアルのタイトル
+swap: false
+stepMargin: 40
 sections:
   - title: このセクションのタイトル
     topics:

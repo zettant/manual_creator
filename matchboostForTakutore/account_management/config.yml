@@ -1,0 +1,20 @@
+description:
+  file: description.md
+keywords: []
+steps:
+- caption: 1.管理メニューを表示
+  file: step1.md
+  image: step1.png
+  imgSize: 2x2
+  keywords: []
+- caption: 2. アカウント管理を選択
+  file: step2.md
+  image: step2.png
+  imgSize: 2x2
+  keywords: []
+- caption: '3. 新規追加ボタンから必要事項を入力し実行ボタンを押す'
+  file: step3.md
+  image: step3.png
+  imgSize: 2x2
+  keywords: []
+topic: アカウントの管理

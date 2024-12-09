@@ -1,0 +1,20 @@
+description:
+  file: description.md
+keywords: []
+steps:
+- caption: 1.管理メニューを表示
+  file: step1.md
+  image: step1.png
+  imgSize: 2x2
+  keywords: []
+- caption: 2.振込先の口座情報の値を修正
+  file: step2.md
+  image: step2.png
+  imgSize: 2x2
+  keywords: []
+- caption: 3.選手の申し込み画面に修正した銀行口座が表示される
+  file: step3.md
+  image: step3.png
+  imgSize: 1x1
+  keywords: []
+topic: 銀行の振込情報の修正

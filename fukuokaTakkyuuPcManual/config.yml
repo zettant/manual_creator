@@ -1,10 +1,10 @@
-issuer: 発行者名の名前に変えてください
+issuer: Takeshi Hashimoto
 sections:
-- title: セクションにタイトルをつけてください
+- title: MatchSupport 大会参加者のマニュアル
   topics:
   - 申し込みページをメールで受け取る
   - 責任者情報・選手情報を入力する
   - 支払い方法がクレジットカードで申し込む
   - 支払い方法がコンビニ支払いで申し込む
   - 支払い方法が銀行振込で申し込む
-title: このマニュアルのタイトルを書いてください
+title: MatchSupport 大会参加者のマニュアル

@@ -1,5 +1,25 @@
 description:
   file: description.md
 keywords: []
-steps: []
-topic: 参加者の追加
+steps:
+- caption: ''
+  file: step1.md
+  image: step1.png
+  imgSize: 2x2
+  keywords: []
+- caption: ''
+  file: step2.md
+  image: step2.png
+  imgSize: 2x2
+  keywords: []
+- caption: ''
+  file: step3.md
+  image: step3.png
+  imgSize: 2x2
+  keywords: []
+- caption: ''
+  file: step4.md
+  image: step4.png
+  imgSize: 2x2
+  keywords: []
+topic: 参参加者の追加（個別に追加）
